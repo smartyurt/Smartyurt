@@ -1,0 +1,8 @@
+.bg-yurt {
+    background: url('/static/images/yurt.jpg') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}

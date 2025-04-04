@@ -1,0 +1,352 @@
+{% load static %}
+
+<html lang="en" data-bs-theme="light"><head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Carousel Template · Bootstrap v5.3</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <!-- Подключение Prism.js и стилей -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+
+
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  <style>
+        @font-face {
+            font-family: 'NotoSans_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-regular.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_medium_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-medium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_bold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-bold.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_semibold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
+        }
+</style></head>
+ <body>
+
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="background-color: #2E8B57;">
+  <div class="container">
+    <h1 style="color: white;">Ақылды киіз үйде қолданылған Ардуино жобалары</h1>
+  </div>
+</nav>
+
+<h5 class="text-success text-uppercase text-center" style="font-size: 1.25rem; font-weight: 400;">
+
+</h5>
+
+
+    <section class="container">
+   <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
+1. Arduino UNO арқылы  RFID-оқығышты қалай іске қосады?
+</h5>
+    <img src="{% static 'images/RFID.jpg' %}" alt="RFID" style="width: 600px; height: auto;">
+
+<div class="container my-3">
+  <h3>Arduino код:</h3>
+  <div class="bg-light p-3 border rounded">
+    <pre><code class="language-cpp">#include <Servo.h>     // Серво моторды басқару үшін кітапхана
+#include <HT1621.h>    // HT1621 дисплейін басқару үшін кітапхана
+#include <SPI.h>       // SPI байланысын қолдану үшін кітапхана
+#include <MFRC522.h>   // RFID оқу модулін басқару үшін кітапхана
+
+#define SS_PIN 10  // RFID модулінің SS (Slave Select) пині
+#define RST_PIN 9  // RFID модулінің Reset (Қайта іске қосу) пині
+#define CS 7       // HT1621 дисплейінің Chip Select (CS) пині
+#define WR 6       // HT1621 дисплейінің Write (Жазу) пині
+#define DATA 5     // HT1621 дисплейінің Data (Деректер) пині
+
+String UID = "6CCB4322";  // RFID картасының дұрыс UID коды
+byte lock = 0;  // Құлыптың күйі (0 - ашық, 1 - жабық)
+
+Servo servo;  // Серво мотор объектісін анықтау
+HT1621 lcd;   // HT1621 дисплей объектісін анықтау
+MFRC522 rfid(SS_PIN, RST_PIN);  // RFID оқу модулін анықтау
+
+void setup() {
+  Serial.begin(9600);  // Сериялық байланыс жылдамдығын орнату
+  servo.attach(3);     // Серво моторды 3-пинге қосу
+  servo.write(70);     // Бастапқы күйін орнату (жабық есік)
+
+  lcd.begin(CS, WR, DATA); // Дисплейді инициализациялау
+  lcd.clear();             // Дисплейді тазалау
+  lcd.print("HELLO");      // "HELLO" мәтінін көрсету (тестілеу үшін)
+
+  SPI.begin();      // SPI байланысын бастау
+  rfid.PCD_Init();  // RFID оқу модулін инициализациялау
+}
+
+void loop() {
+  lcd.clear();
+  lcd.print("CARD?");  // "CARD?" деген хабарламаны шығару
+  delay(1000);
+
+  if (!rfid.PICC_IsNewCardPresent()) return;  // Егер жаңа карта болмаса, қайта оралу
+  if (!rfid.PICC_ReadCardSerial()) return;    // Егер картаны оқу мүмкін болмаса, қайта оралу
+
+  lcd.clear();
+  lcd.print("SCAN...");  // "SCAN..." хабарламасын шығару
+  Serial.print("NUID tag is: ");
+  String ID = "";
+
+  // Карта UID кодын оқу
+  for (byte i = 0; i < rfid.uid.size; i++) {
+    ID.concat(String(rfid.uid.uidByte[i] < 0x10 ? "0" : ""));
+    ID.concat(String(rfid.uid.uidByte[i], HEX));
+    delay(300);
+  }
+  ID.toUpperCase();  // UID кодын бас әріптерге айналдыру
+
+  // Егер дұрыс карта оқылса және есік жабық болса, оны ашу
+  if (ID == UID && lock == 0) {
+    servo.write(70);  // Есікті жабу
+    lcd.clear();
+    lcd.print("LOCKED");  // "LOCKED" хабарламасын шығару
+    delay(1500);
+    lock = 1;
+  }
+  // Егер дұрыс карта оқылса және есік жабық болмаса, оны жабу
+  else if (ID == UID && lock == 1) {
+    servo.write(160); // Есікті ашу
+    lcd.clear();
+    lcd.print("OPEN");  // "OPEN" хабарламасын шығару
+    delay(1500);
+    lock = 0;
+  }
+  // Егер UID сәйкес келмесе, қате хабарламасын шығару
+  else {
+    lcd.clear();
+    lcd.print("ERROR");  // "ERROR" хабарламасын шығару
+    delay(1500);
+  }
+}
+</code></pre>
+  </div>
+</div>
+
+        <section class="container">
+              <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
+2. TFD lCD mega shield арқылы температура мен ылғалдылықты экранға шығару
+</h5>
+
+
+    <img src="{% static 'images/tft.jpg' %}" alt="RFID" style="width: 600px; height: auto;">
+
+<div class="container my-3">
+  <h3>Arduino код:</h3>
+  <div class="bg-light p-3 border rounded">
+    <pre><code class="language-cpp">
+#include &lt;MCUFRIEND_kbv.h&gt;   // TFT дисплейін басқару үшін кітапхана
+#include &lt;Adafruit_GFX.h&gt;    // Графикалық элементтерді салу үшін кітапхана
+#include &lt;DHT.h&gt;             // DHT11 температура және ылғалдылық сенсорын басқару кітапханасы
+#include &lt;Servo.h&gt;           // Серво моторды басқару үшін кітапхана
+
+#define DHTPIN 46       // DHT11 сенсоры қосылған пин
+#define DHTTYPE DHT11   // Сенсордың түрі
+#define SERVO_PIN 6     // Серво мотордың пині
+
+DHT dht(DHTPIN, DHTTYPE);  // DHT сенсорын инициализациялау
+MCUFRIEND_kbv tft;         // TFT дисплей объектісі
+Servo myServo;             // Серво мотор объектісі
+
+bool servoMoving = false;  // Серво мотордың қозғалыс флагы
+
+void setup() {
+    Serial.begin(115200); // Сериялық байланыс жылдамдығын орнату
+    dht.begin();          // DHT сенсорын іске қосу
+    myServo.attach(SERVO_PIN); // Серво моторды белгілі бір пинге қосу
+    myServo.write(0);     // Серво моторды бастапқы күйге қою
+
+    uint16_t ID = tft.readID(); // TFT дисплейдің идентификаторын оқу
+    tft.begin(ID);              // TFT дисплейді іске қосу
+    tft.setRotation(1);         // Экранның айналу бағытын орнату
+
+    // Экранды көк түспен бояу
+    tft.fillScreen(0x001F);
+    tft.setTextColor(0xF800); // Қызыл түсті мәтін
+    tft.setTextSize(3);       // Мәтіннің өлшемі
+    tft.setCursor(50, 20);    // Мәтіннің координаталары
+    tft.print("SMART YURT");  // Экранға "SMART YURT" жазуын шығару
+
+    drawYurt(); // Юртаның суретін салу
+}
+
+void loop() {
+    float h = dht.readHumidity();   // Ауаның ылғалдылығын оқу
+    float t = dht.readTemperature(); // Температураны оқу
+
+    if (isnan(h) || isnan(t)) { // Егер мәліметтер қате болса, циклдан шығу
+        return;
+    }
+
+    // Экранда температура мен ылғалдылық мәндерін жаңарту
+    tft.fillRect(20, 60, 200, 100, 0x001F); // Көне деректерді тазалау
+    tft.setTextColor(0xFFFF); // Ақ түсті мәтін
+    tft.setTextSize(2);
+    tft.setCursor(40, 80);
+    tft.print("Temp: "); tft.print(t); tft.print(" C"); // Температураны шығару
+    tft.setCursor(40, 110);
+    tft.print("Humidity: "); tft.print(h); tft.print(" %"); // Ылғалдылықты шығару
+
+    // Егер температура 25°C-тан жоғары болса, сервопривод қозғалады
+    if (t > 25) {
+        if (!servoMoving) {
+            servoMoving = true;
+            moveServo(); // Серво моторды қозғалысқа келтіру
+        }
+    } else {
+        myServo.write(0); // Егер температура төмендесе, серво моторды бастапқы күйге қою
+        servoMoving = false;
+    }
+
+    delay(2000); // 2 секунд күту
+}
+
+// Серво моторды қозғалысқа келтіретін функция
+void moveServo() {
+    for (int pos = 0; pos <= 180; pos += 10) { // 0-ден 180 градусқа дейін бұру
+        myServo.write(pos);
+        delay(100);
+    }
+    for (int pos = 180; pos >= 0; pos -= 10) { // 180-ден 0 градусқа дейін кері бұру
+        myServo.write(pos);
+        delay(100);
+    }
+}
+
+// TFT дисплейде юрта суретін салу функциясы
+void drawYurt() {
+    tft.fillCircle(160, 180, 40, 0x964B00); // Юртаның күмбезін салу
+    tft.fillRect(120, 180, 80, 50, 0x964B00); // Юртаның қабырғасын салу
+    tft.drawLine(120, 180, 160, 140, 0xFFFF); // Юртаның оң жақ бағанын салу
+    tft.drawLine(200, 180, 160, 140, 0xFFFF); // Юртаның сол жақ бағанын салу
+    tft.fillRect(150, 200, 20, 30, 0x0000); // Юртаның есігін қара түспен салу
+}
+
+    </code></pre>
+  </div>
+</div>
+
+
+
+</body>
+</html>

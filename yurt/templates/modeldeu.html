@@ -1,0 +1,218 @@
+{% load static %}
+
+<html lang="en" data-bs-theme="light"><head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Carousel Template · Bootstrap v5.3</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  <style>
+        @font-face {
+            font-family: 'NotoSans_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-regular.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_medium_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-medium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_bold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-bold.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_semibold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
+        }
+</style></head>
+ <body>
+
+
+<nav class="navbar navbar-expand-md sticky-top border-bottom" style="background-color: #2E8B57;">
+  <div class="container">
+
+
+</nav>
+
+<main>
+
+
+
+
+
+
+
+<div class="bg-body-tertiary text-start overflow-hidden w-100" style="width: 100vw; padding: 20px;">
+    <div class="my-3 py-3">
+        <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
+    3D модельдеу
+</h5>
+
+
+        <p class="lead">
+            SMART YURT – бұл дәстүрлі киіз үйді IoT (Internet of Things) технологияларымен жабдықтау арқылы автономды, энергия тиімді, қауіпсіз және ыңғайлы баспана жасауға бағытталған жоба. Бұл жүйе күн панельдері, ақылды жылыту, бейнебақылау, автоматтандырылған желдету және су жинау жүйелерімен жабдықталған. </p> <p>Blender – үшөлшемді модельдеу, анимация және рендеринг үшін қолданылатын ашық кодты бағдарлама. SMART YURT жобасын модельдеуде Blender қолданудың бірнеше артықшылықтары бар:
+        </p>
+             <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
+Модельдеу процесі
+</h5>
+
+<ul>
+    <li>Киіз үй қаңқасын құру: Тор (mesh) және қисық сызық (curve) құралдары арқылы</li>
+    <li>Материалдар мен текстуралар: Дәстүрлі киіз жабындары, ағаш торкөздері мен металл бөлшектер</li>
+    <li>Интерактивті элементтер: Есіктер мен терезелерді қозғалтатын анимациялар</li>
+    <li>Электронды жүйелерді бейнелеу: Күн панельдері, сенсорлар, жарықтандыру</li>
+</ul>
+        <img src="{% static 'images/yurt01.jpg' %}" alt="Smart Yurt" width="1000">
+
+       <style>
+    .download-links {
+        text-align: left;
+    }
+    .download-links p {
+        margin: 5px 0;
+    }
+    .download-links a {
+        display: inline-block;
+        min-width: 200px; /* Длина всех ссылок одинакова */
+        text-decoration: none;
+        color: #007bff; /* Цвет ссылок (Bootstrap синий) */
+    }
+</style>
+
+<div class="download-links">
+    <p>Шаңырақтың моделін жүктеп алу сілтемесі:</p>
+    <a href="{% static 'models/Юрта_Шонырак_Х1.stl' %}" download>Шаңырақ (STL)</a>
+
+    <p>Керегенің моделін жүктеп алу сілтемесі:</p>
+    <a href="{% static 'models/Юрта_Кереге_Х1.stl' %}" download>Кереге (STL)</a>
+    <a href="{% static 'models/Юрта_Кереге_Х5.stl' %}" download>Кереге01 (STL)</a>
+
+    <p>Уықтың моделін жүктеп алу сілтемесі:</p>
+    <a href="{% static 'models/Юрта_Уык_(нужен запас)Х2.stl' %}" download>Уық (STL)</a>
+    <a href="{% static 'models/Юрта_Уык_(нужен запас)Х43.stl' %}" download>Уық01 (STL)</a>
+
+    <p>Есіктің моделін жүктеп алу сілтемесі:</p>
+    <a href="{% static 'models/Юрта_Дверь_Л_Х1.stl' %}" download>Есіктің сол жағы (STL)</a>
+    <a href="{% static 'models/Юрта_Дверь_П_Х1.stl' %}" download>Есіктің оң жағы (STL)</a>
+
+    <p>Есік жақтауын моделін жүктеп алу сілтемесі:</p>
+    <a href="{% static 'models/Юрта_Вход_Х1.stl' %}" download>Есіктің жақтауы (STL)</a>
+</div>
+
+
+    </div>
+</div>
+
+
+
+</main>
+ <a href="{% url 'home' %}" class="btn">🔙 Басты бетке қайту</a>
+
+
+
+</body></html>
