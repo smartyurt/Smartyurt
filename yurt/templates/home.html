@@ -9,10 +9,11 @@
     <title>Смарт-Юрта</title>
      <!-- Bootstrap дұрыс қосу -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-
 </head>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -105,55 +106,70 @@
   </div>
 </div>
 
-<main class="container-fluid">
-  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary position-relative overflow-hidden custom-container">
+<main class="container">
+  <div class="position-relative overflow-hidden rounded" style="height: 550px;">
     <img src="{% static 'images/01020304.jpeg' %}"
-       alt="Ақылды киіз үй"
-       class="img-fluid w-100 h-100 position-absolute top-0 start-0 animated-image">
+         alt="Ақылды киіз үй"
+         class="w-100 h-100 position-absolute top-0 start-0 zoom-in"
+         style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
 
-    <div class="col-lg-6 px-0 position-relative text-white">
-      <h1 class="display-4 fst-italic">Ақылды киіз үй - дәстүр мен инновацияның үйлесімділігі</h1>
-      <p class="lead my-3">«Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.</p>
+    <div class="position-relative text-white p-4 p-md-5 fade-in-text">
+      <div class="col-lg-8">
+        <h1 class="display-5 fst-italic">Ақылды киіз үй - дәстүр мен инновацияның үйлесімділігі</h1>
+        <p class="lead my-3">«Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.</p>
+      </div>
     </div>
   </div>
 </main>
 
-<div class="row mb-2">
-  <div class="col-md-6">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-primary-emphasis">Жоба авторы</strong>
-        <h3 class="mb-0">Балтабай Мұхаммедкәрім</h3>
-        <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
-        <p class="card-text mb-auto">Дизайн және зерттеу жұмыстарына жауапты. Ол киіз үйдің эстетикасы мен ыңғайлылығын жетілдіруге бағытталған зерттеулер жүргізді, материалдарды таңдады және пайдаланушы тәжірибесін жақсарту бойынша жұмыс жасады.</p>
 
-        </a>
-      </div>
-      <div class="col-auto d-none d-lg-block">
-        <img src="static/images/muhammedkarim.jpg" alt="Thumbnail" width="200" height="250" class="bd-placeholder-img">
+<div class="container">
+  <div class="row mb-4">
+    <!-- Первый автор -->
+    <div class="col-md-6 mb-4">
+      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden">
+        <div class="d-block d-md-none">
+          <!-- Картинка сверху в моб версии -->
+          <img src="{% static 'images/muhammedkarim.jpg' %}" alt="Thumbnail"
+               class="img-fluid w-100" style="height: auto;">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between">
+          <strong class="d-inline-block mb-2 text-primary-emphasis">Жоба авторы</strong>
+          <h3 class="mb-0">Балтабай Мұхаммедкәрім</h3>
+          <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
+          <p class="card-text mb-0">Дизайн және зерттеу жұмыстарына жауапты. Ол киіз үйдің эстетикасы мен ыңғайлылығын жетілдіруге бағытталған зерттеулер жүргізді, материалдарды таңдады және пайдаланушы тәжірибесін жақсарту бойынша жұмыс жасады.</p>
+        </div>
+        <div class="d-none d-md-block">
+          <!-- Картинка сбоку на больших экранах -->
+          <img src="{% static 'images/muhammedkarim.jpg' %}" alt="Thumbnail"
+               width="200" height="250" class="bd-placeholder-img">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-success-emphasis">Жоба авторы</strong>
-        <h3 class="mb-0">Рахметолла Али </h3>
-        <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
-        <p class="mb-auto">Жоба идеясының авторы, инженерлік шешімдерге жауапты. Ол Smart Yurt 3D моделін жобалап, оның тұрақтылығы мен функционалдығын қамтамасыз етті.</p>
-
-        </a>
-      </div>
-      <div class="col-auto d-none d-lg-block">
-        <img src="static/images/ali.jpg" alt="Thumbnail" width="200" height="250" class="bd-placeholder-img">
+    <!-- Второй автор -->
+    <div class="col-md-6 mb-4">
+      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden">
+        <div class="d-block d-md-none">
+          <!-- Картинка сверху в моб версии -->
+          <img src="{% static 'images/ali.jpg' %}" alt="Thumbnail"
+               class="img-fluid w-100" style="height: auto;">
+        </div>
+        <div class="p-4 d-flex flex-column justify-content-between">
+          <strong class="d-inline-block mb-2 text-success-emphasis">Жоба авторы</strong>
+          <h3 class="mb-0">Рахметолла Али</h3>
+          <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
+          <p class="mb-0">Жоба идеясының авторы, инженерлік шешімдерге жауапты. Ол Smart Yurt 3D моделін жобалап, оның тұрақтылығы мен функционалдығын қамтамасыз етті.</p>
+        </div>
+        <div class="d-none d-md-block">
+          <!-- Картинка сбоку на больших экранах -->
+          <img src="{% static 'images/ali.jpg' %}" alt="Thumbnail"
+               width="200" height="250" class="bd-placeholder-img">
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
 
 
 </body>

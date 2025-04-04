@@ -144,68 +144,82 @@
 
 
 
+<div class="bg-body-tertiary text-start overflow-hidden w-100" style="padding: 20px;">
+  <div class="my-3 py-3">
+    <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400;">
+      3D модельдеу
+    </h5>
 
+    <p class="lead">
+      SMART YURT – бұл дәстүрлі киіз үйді IoT (Internet of Things) технологияларымен жабдықтау арқылы автономды, энергия тиімді, қауіпсіз және ыңғайлы баспана жасауға бағытталған жоба. Бұл жүйе күн панельдері, ақылды жылыту, бейнебақылау, автоматтандырылған желдету және су жинау жүйелерімен жабдықталған.
+    </p>
 
+    <p>
+      Blender – үшөлшемді модельдеу, анимация және рендеринг үшін қолданылатын ашық кодты бағдарлама. SMART YURT жобасын модельдеуде Blender қолданудың бірнеше артықшылықтары бар:
+    </p>
 
-<div class="bg-body-tertiary text-start overflow-hidden w-100" style="width: 100vw; padding: 20px;">
-    <div class="my-3 py-3">
-        <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
-    3D модельдеу
-</h5>
+    <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400;">
+      Модельдеу процесі
+    </h5>
 
+    <ul>
+      <li>Киіз үй қаңқасын құру: Тор (mesh) және қисық сызық (curve) құралдары арқылы</li>
+      <li>Материалдар мен текстуралар: Дәстүрлі киіз жабындары, ағаш торкөздері мен металл бөлшектер</li>
+      <li>Интерактивті элементтер: Есіктер мен терезелерді қозғалтатын анимациялар</li>
+      <li>Электронды жүйелерді бейнелеу: Күн панельдері, сенсорлар, жарықтандыру</li>
+    </ul>
 
-        <p class="lead">
-            SMART YURT – бұл дәстүрлі киіз үйді IoT (Internet of Things) технологияларымен жабдықтау арқылы автономды, энергия тиімді, қауіпсіз және ыңғайлы баспана жасауға бағытталған жоба. Бұл жүйе күн панельдері, ақылды жылыту, бейнебақылау, автоматтандырылған желдету және су жинау жүйелерімен жабдықталған. </p> <p>Blender – үшөлшемді модельдеу, анимация және рендеринг үшін қолданылатын ашық кодты бағдарлама. SMART YURT жобасын модельдеуде Blender қолданудың бірнеше артықшылықтары бар:
-        </p>
-             <h5 class="text-success text-uppercase" style="font-size: 1.25rem; font-weight: 400; text-align: left;">
-Модельдеу процесі
-</h5>
+    <img src="{% static 'images/yurt01.jpg' %}" alt="Smart Yurt" class="img-fluid my-3">
 
-<ul>
-    <li>Киіз үй қаңқасын құру: Тор (mesh) және қисық сызық (curve) құралдары арқылы</li>
-    <li>Материалдар мен текстуралар: Дәстүрлі киіз жабындары, ағаш торкөздері мен металл бөлшектер</li>
-    <li>Интерактивті элементтер: Есіктер мен терезелерді қозғалтатын анимациялар</li>
-    <li>Электронды жүйелерді бейнелеу: Күн панельдері, сенсорлар, жарықтандыру</li>
-</ul>
-        <img src="{% static 'images/yurt01.jpg' %}" alt="Smart Yurt" width="1000">
-
-       <style>
-    .download-links {
+    <style>
+      .download-links {
         text-align: left;
-    }
-    .download-links p {
-        margin: 5px 0;
-    }
-    .download-links a {
+      }
+
+      .download-links p {
+        margin: 10px 0 5px;
+        font-weight: bold;
+      }
+
+      .download-links a {
         display: inline-block;
-        min-width: 200px; /* Длина всех ссылок одинакова */
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        border: 1px solid #007bff;
+        border-radius: 5px;
         text-decoration: none;
-        color: #007bff; /* Цвет ссылок (Bootstrap синий) */
-    }
-</style>
+        color: #007bff;
+        background-color: #f8f9fa;
+        transition: all 0.3s;
+        width: 100%;
+        max-width: 300px;
+      }
 
-<div class="download-links">
-    <p>Шаңырақтың моделін жүктеп алу сілтемесі:</p>
-    <a href="{% static 'models/Юрта_Шонырак_Х1.stl' %}" download>Шаңырақ (STL)</a>
+      .download-links a:hover {
+        background-color: #e2e6ea;
+      }
+    </style>
 
-    <p>Керегенің моделін жүктеп алу сілтемесі:</p>
-    <a href="{% static 'models/Юрта_Кереге_Х1.stl' %}" download>Кереге (STL)</a>
-    <a href="{% static 'models/Юрта_Кереге_Х5.stl' %}" download>Кереге01 (STL)</a>
+    <div class="download-links">
+      <p>Шаңырақтың моделін жүктеп алу сілтемесі:</p>
+      <a href="{% static 'models/Юрта_Шонырак_Х1.stl' %}" download>Шаңырақ (STL)</a>
 
-    <p>Уықтың моделін жүктеп алу сілтемесі:</p>
-    <a href="{% static 'models/Юрта_Уык_(нужен запас)Х2.stl' %}" download>Уық (STL)</a>
-    <a href="{% static 'models/Юрта_Уык_(нужен запас)Х43.stl' %}" download>Уық01 (STL)</a>
+      <p>Керегенің моделін жүктеп алу сілтемесі:</p>
+      <a href="{% static 'models/Юрта_Кереге_Х1.stl' %}" download>Кереге (STL)</a>
+      <a href="{% static 'models/Юрта_Кереге_Х5.stl' %}" download>Кереге01 (STL)</a>
 
-    <p>Есіктің моделін жүктеп алу сілтемесі:</p>
-    <a href="{% static 'models/Юрта_Дверь_Л_Х1.stl' %}" download>Есіктің сол жағы (STL)</a>
-    <a href="{% static 'models/Юрта_Дверь_П_Х1.stl' %}" download>Есіктің оң жағы (STL)</a>
+      <p>Уықтың моделін жүктеп алу сілтемесі:</p>
+      <a href="{% static 'models/Юрта_Уык_(нужен запас)Х2.stl' %}" download>Уық (STL)</a>
+      <a href="{% static 'models/Юрта_Уык_(нужен запас)Х43.stl' %}" download>Уық01 (STL)</a>
 
-    <p>Есік жақтауын моделін жүктеп алу сілтемесі:</p>
-    <a href="{% static 'models/Юрта_Вход_Х1.stl' %}" download>Есіктің жақтауы (STL)</a>
-</div>
+      <p>Есіктің моделін жүктеп алу сілтемесі:</p>
+      <a href="{% static 'models/Юрта_Дверь_Л_Х1.stl' %}" download>Есіктің сол жағы (STL)</a>
+      <a href="{% static 'models/Юрта_Дверь_П_Х1.stl' %}" download>Есіктің оң жағы (STL)</a>
 
-
+      <p>Есік жақтауын моделін жүктеп алу сілтемесі:</p>
+      <a href="{% static 'models/Юрта_Вход_Х1.stl' %}" download>Есіктің жақтауы (STL)</a>
     </div>
+  </div>
 </div>
 
 
