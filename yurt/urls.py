@@ -9,4 +9,5 @@ urlpatterns = [
 path('arduino/', views.arduino, name='arduino'),
 path('iot/', views.iot, name='iot'),
 path('gallery/', views.gallery, name='gallery'),
+path('iot/', views.iot_view, name='iot'),
 ]

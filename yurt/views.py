@@ -21,5 +21,6 @@ def gallery (request):
     return render(request, 'gallery.html')
 
 
-
+def iot_view(request):
+    return render(request, 'iot.html')
 
