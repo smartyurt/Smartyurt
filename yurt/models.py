@@ -7,3 +7,7 @@ class Feature(models.Model):
 
     def __str__(self):
         return self.title
+class SensorData(models.Model):
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    timestamp = models.DateTimeField(auto_now_add=True)
