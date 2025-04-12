@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-h#0%7b87)0#@0^xyrdye$%8&c^+7ku2f%1kgz438survclg765
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Smartyurt.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1']
+
 
 
 
@@ -129,9 +130,16 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Статические файлы
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # если у тебя структура именно такая
+]
+
+
+
+
+
 
 # Медиа-файлы (если используешь загрузку)
 MEDIA_URL = '/media/'

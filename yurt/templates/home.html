@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ақылды киіз үй</title>
+    <title>Ақылды кйіз үй</title>
      <!-- Bootstrap дұрыс қосу -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +14,142 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+<style>
+  .hover-effect {
+    transition: transform 0.3s ease, font-size 0.3s ease;
+  }
+
+  .hover-effect:hover {
+    transform: scale(1.1); /* Увеличивает изображение */
+    font-size: 1.6rem; /* Увеличивает размер текста */
+  }
+</style>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  .lead {
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+</style>
+
+
+  <style>
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .blog-header-logo {
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #2c3e50;
+      transition: color 0.3s ease;
+    }
+
+    .blog-header-logo:hover {
+      color: #28a745;
+    }
+
+    .link-secondary {
+      color: #6c757d;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .link-secondary:hover {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    .btn-outline-secondary {
+      border-color: #28a745;
+      color: #28a745;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      .blog-header-logo {
+        font-size: 1.4rem;
+      }
+
+      .btn-outline-secondary {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+      }
+    }
+  </style>
+
+ <style>
+  .nav-scroller {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .nav-underline a {
+    position: relative;
+    display: inline-block;
+    padding: 12px 18px;
+    font-weight: 600;
+    color: 	#2F4F4F; /* тёмно-серый */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-underline a:hover {
+    color: 	#3CB371; /* тёмно-зелёный */
+    transform: scale(1.05); /* немного увеличивается */
+  }
+
+  .nav-underline a:active {
+    color: gray !important; /* серый при нажатии */
+  }
+
+  /* Mobile адаптация */
+  @media (max-width: 576px) {
+    .nav-underline a {
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+  }
+</style>
+<style>
+  @keyframes slideIn {
+    from {
+      transform: translateY(-30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -78,93 +213,104 @@
 
 <div class="container">
   <header class="border-bottom lh-1 py-3">
+  <div class="container">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#"> Басты бет</a>
+        <a class="link-secondary" href="https://smartyurt.pythonanywhere.com/">Басты бет</a>
       </div>
       <div class="col-4 text-center">
-        <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">SMART YURT</a>
+        <a class="blog-header-logo text-decoration-none" href="https://smartyurt.pythonanywhere.com/">SMART YURT</a>
       </div>
       <div class="col-4 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+               stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               class="mx-3" role="img" viewBox="0 0 24 24">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5"></circle>
+            <path d="M21 21l-5.2-5.2"></path>
+          </svg>
         </a>
-        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+        <a class="btn btn-sm btn-outline-secondary" href="https://smartyurt.pythonanywhere.com/">Кіру</a>
       </div>
     </div>
-  </header>
-
-  <div class="nav-scroller py-1 mb-3 border-bottom">
-    <nav class="nav nav-underline justify-content-between">
-      <a href="{% url 'business_plan' %}">Бизнес план</a>
-      <a href="{% url 'modeldeu' %}">3D Модельдеу</a>
-      <a href="{% url 'koldanu' %}">Қолдану салалары</a>
-      <a href="{% url 'arduino' %}">Ардуино жобалары</a>
-       <a href="{% url 'iot' %}">IoT технологиялары</a>
-  <a href="{% url 'gallery' %}">Галерея</a>
-    </nav>
   </div>
+</header>
+<div class="nav-scroller py-2 mb-3 border-bottom">
+  <nav class="nav nav-underline justify-content-between">
+    <a href="{% url 'business_plan' %}">Бизнес жоспар</a>
+    <a href="{% url 'modeldeu' %}">3D модельдеу</a>
+    <a href="{% url 'koldanu' %}">Қолдану салалары</a>
+    <a href="{% url 'arduino' %}">Ардуино жобалары</a>
+    <a href="{% url 'iot' %}">IoT технологиялары</a>
+    <a href="{% url 'gallery' %}">Галерея</a>
+    <a href="{% url 'weather_dashboard' %}">weather_dashboard</a>
+  </nav>
+</div>
 </div>
 
 <main class="container">
   <div class="position-relative overflow-hidden rounded" style="height: 550px;">
-    <img src="{% static 'images/01020304.jpeg' %}"
-         alt="Ақылды киіз үй"
-         class="w-100 h-100 position-absolute top-0 start-0 zoom-in"
-         style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
+    <img src="/static/images/01020304.jpeg" alt="Ақылды киіз үй" class="w-100 h-100 position-absolute top-0 start-0 zoom-in" style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
 
     <div class="position-relative text-white p-4 p-md-5 fade-in-text">
       <div class="col-lg-8">
-        <h1 class="display-5 fst-italic">Ақылды киіз үй - дәстүр мен инновацияның үйлесімділігі</h1>
-        <p class="lead my-3">«Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.</p>
+<h1 class="fst-italic" style="font-family: 'Playfair Display', serif; font-weight: normal; font-size: 3.2rem; text-shadow: 3px 3px 15px rgba(0,0,0,0.2); letter-spacing: 1.5px; animation: slideIn 1s ease-out;">
+  SMART YURT - дәстүр мен инновацияның үйлесімділігі
+</h1>
+
+        <p class="lead my-3" style="font-family: 'Roboto', sans-serif; opacity: 0.8; text-shadow: 1px 1px 6px rgba(0,0,0,0.3);">
+          «Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.
+        </p>
       </div>
     </div>
   </div>
 </main>
 
-
 <div class="container">
   <div class="row mb-4">
     <!-- Первый автор -->
     <div class="col-md-6 mb-4">
-      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden">
+      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden transition-shadow hover:shadow-lg">
         <div class="d-block d-md-none">
           <!-- Картинка сверху в моб версии -->
           <img src="{% static 'images/muhammedkarim.jpg' %}" alt="Thumbnail"
-               class="img-fluid w-100" style="height: auto;">
+               class="img-fluid w-100 hover-effect" style="height: auto;">
         </div>
         <div class="p-4 d-flex flex-column justify-content-between">
           <strong class="d-inline-block mb-2 text-primary-emphasis">Жоба авторы</strong>
-          <h3 class="mb-0">Балтабай Мұхаммедкәрім</h3>
+          <h3 class="mb-0 hover-effect" style="font-size: 1.5rem; font-weight: bold; color: #2F4F4F;">Балтабай Мұхаммедкәрім</h3>
+
           <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
-          <p class="card-text mb-0">Дизайн және зерттеу жұмыстарына жауапты. Ол киіз үйдің эстетикасы мен ыңғайлылығын жетілдіруге бағытталған зерттеулер жүргізді, материалдарды таңдады және пайдаланушы тәжірибесін жақсарту бойынша жұмыс жасады.</p>
+          <p class="card-text mb-0" style="font-size: 1rem; color: #555;">Дизайн және зерттеу жұмыстарына жауапты. Ол киіз үйдің эстетикасы мен ыңғайлылығын жетілдіруге бағытталған зерттеулер жүргізді, материалдарды таңдады және пайдаланушы тәжірибесін жақсарту бойынша жұмыс жасады.</p>
         </div>
         <div class="d-none d-md-block">
           <!-- Картинка сбоку на больших экранах -->
           <img src="{% static 'images/muhammedkarim.jpg' %}" alt="Thumbnail"
-               width="200" height="250" class="bd-placeholder-img">
+               width="200" height="250" class="bd-placeholder-img hover-effect">
         </div>
       </div>
     </div>
 
     <!-- Второй автор -->
     <div class="col-md-6 mb-4">
-      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden">
+      <div class="border rounded shadow-sm h-100 d-flex flex-column flex-md-row overflow-hidden transition-shadow hover:shadow-lg">
         <div class="d-block d-md-none">
           <!-- Картинка сверху в моб версии -->
           <img src="{% static 'images/ali.jpg' %}" alt="Thumbnail"
-               class="img-fluid w-100" style="height: auto;">
+               class="img-fluid w-100 hover-effect" style="height: auto;">
         </div>
         <div class="p-4 d-flex flex-column justify-content-between">
           <strong class="d-inline-block mb-2 text-success-emphasis">Жоба авторы</strong>
-          <h3 class="mb-0">Рахметолла Али</h3>
+          <h3 class="mb-0 hover-effect" style="font-size: 1.5rem; font-weight: bold; color: #2F4F4F;">Рахметолла Али</h3>
+
           <div class="mb-1 text-body-secondary">10-сынып оқушысы</div>
-          <p class="mb-0">Жоба идеясының авторы, инженерлік шешімдерге жауапты. Ол Smart Yurt 3D моделін жобалап, оның тұрақтылығы мен функционалдығын қамтамасыз етті.</p>
+          <p class="mb-0" style="font-size: 1rem; color: #555;">Жоба идеясының авторы, инженерлік шешімдерге жауапты. Ол Smart Yurt 3D моделін жобалап, оның тұрақтылығы мен функционалдығын қамтамасыз етті.</p>
         </div>
         <div class="d-none d-md-block">
           <!-- Картинка сбоку на больших экранах -->
           <img src="{% static 'images/ali.jpg' %}" alt="Thumbnail"
-               width="200" height="250" class="bd-placeholder-img">
+               width="200" height="250" class="bd-placeholder-img hover-effect">
         </div>
       </div>
     </div>
