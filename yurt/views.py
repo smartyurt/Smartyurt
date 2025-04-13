@@ -27,6 +27,8 @@ def gallery (request):
 
 def iot_view(request):
     return render(request, 'iot.html')
+def python_iot_view(request):
+    return render(request, 'python_iot.html')
 
 def weather_dashboard(request):
     data = SensorData.objects.order_by('-timestamp')[:10]

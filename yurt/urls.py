@@ -11,6 +11,7 @@ path('arduino/', views.arduino, name='arduino'),
 path('iot/', views.iot, name='iot'),
 path('gallery/', views.gallery, name='gallery'),
 path('iot/', views.iot_view, name='iot'),
+path('python_iot/', views.python_iot_view, name='python_iot'),
 path('api/sensor/', receive_sensor_data, name='receive_sensor_data'),
     path('weather_dashboard/', views.weather_dashboard, name='weather_dashboard'),
 ]

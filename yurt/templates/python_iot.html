@@ -1,0 +1,693 @@
+{% load static %}
+
+<html lang="en" data-bs-theme="light"><head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>IoT үшін пайтон жобасы</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <!-- Подключение Prism.js и стилей -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+
+
+
+
+<meta name="theme-color" content="#712cf9">
+      <style>
+    body {
+      background: #f2f6fc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card-custom {
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card-custom:hover {
+      transform: scale(1.02);
+    }
+    .card-header {
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .status-ok {
+      color: green;
+      font-weight: bold;
+    }
+    .status-alert {
+      color: red;
+      font-weight: bold;
+    }
+    .icon-lg {
+      font-size: 2rem;
+    }
+    #copyBtn {
+      margin-bottom: 10px;
+    }
+  </style>
+    <style>
+  .code-container {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #212529;
+    white-space: pre-wrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .copy-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+
+
+    <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+      background-color: #f4f6f9;
+    }
+    .container {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    pre {
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      background-color: #f0f0f0;
+    }
+  </style>
+
+  <style>
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .blog-header-logo {
+      font-weight: bold;
+      font-size: 1.8rem;
+      color: #2c3e50;
+      transition: color 0.3s ease;
+    }
+
+    .blog-header-logo:hover {
+      color: #28a745;
+    }
+
+    .link-secondary {
+      color: #6c757d;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .link-secondary:hover {
+      color: #28a745;
+      text-decoration: none;
+    }
+
+    .btn-outline-secondary {
+      border-color: #28a745;
+      color: #28a745;
+      transition: all 0.3s;
+    }
+
+    .btn-outline-secondary:hover {
+      background-color: #28a745;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      .blog-header-logo {
+        font-size: 1.4rem;
+      }
+
+      .btn-outline-secondary {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+      }
+    }
+  </style>
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  <style>
+        @font-face {
+            font-family: 'NotoSans_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-regular.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_medium_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-medium.ttf);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_bold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-bold.woff);
+        }
+
+        @font-face {
+            font-family: 'NotoSans_semibold_online_security';
+            src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
+        }
+</style>
+      <style>
+    pre code {
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #212529;
+      display: block;
+      white-space: pre-wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  </style>
+    <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+    }
+    .header {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 30px;
+      color: #2c3e50;
+    }
+    .section-title {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #34495e;
+    }
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .icon-lg {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+ <body>
+ <header class="border-bottom lh-1 py-3">
+  <div class="container">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="link-secondary" href="https://smartyurt.pythonanywhere.com/">Басты бет</a>
+      </div>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-decoration-none" href="https://smartyurt.pythonanywhere.com/">SMART YURT</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="link-secondary" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+               stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               class="mx-3" role="img" viewBox="0 0 24 24">
+            <title>Search</title>
+            <circle cx="10.5" cy="10.5" r="7.5"></circle>
+            <path d="M21 21l-5.2-5.2"></path>
+          </svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="https://smartyurt.pythonanywhere.com/">Кіру</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <div class="container py-5">
+      <p>Бұл жобада Arduino Mega арқылы температура мен ылғалдылықты өлшеп, мәліметтерді NodeMCU Wi-Fi арқылы серверге жібереді. Сервер Python арқылы мәліметтерді қабылдап, веб-бетте көрсетеді. Жобаға қажетті жабдықтар мен программа кодтары төменде көрсетіледі:</p>
+    <div class="header"></div>
+    <div class="section-title">1.ESP8266 Arduino Uno үшін Wi-Fi Shield Smart Electronics ESP-12E D1 Wi-Fi Uno негізіндегі ESP8266 Shield</div>
+    <div class="card">
+      <div class="card-body">
+        <h5><i class="bi bi-wifi icon-lg"></i> NodeMCU</h5>
+            <img src="{% static 'images/ESP82.jpg' %}" alt="RFID" style="width: 600px; height: auto;">
+        <p>Бұл Wi-Fi модулі арқылы біз интернетке қосылып, ақпараттарды сыртқы серверге жібереміз. NodeMCU, ESP8266 чипі негізінде жұмыс істейді және Arduino IDE арқылы бағдарламалауға болады.</p>
+      </div>
+    </div>
+
+    <div class="section-title">2. Arduino Mega 2560 R3 CH340G</div>
+    <div class="card">
+      <div class="card-body">
+        <h5><i class="bi bi-box icon-lg"></i> Arduino Mega</h5>
+          <img src="{% static 'images/408676.jpg' %}" alt="RFID" style="width: 600px; height: auto;">
+        <p>Arduino Mega - сенсорлар мен басқа да компоненттерді басқаратын контроллер. Ол көптеген пиндерге ие және күрделі жобалар үшін өте ыңғайлы. Бұл контроллер температура мен ылғалдылық сенсорларына қосылады.</p>
+      </div>
+    </div>
+
+    <div class="section-title">3. Температура мен ылғалдылық сенсоры (DHT11 немесе DHT22)</div>
+    <div class="card">
+      <div class="card-body">
+        <h5><i class="bi bi-thermometer-half icon-lg"></i> Температура мен ылғалдылық сенсоры</h5>
+                    <img src="{% static 'images/6352.jpg' %}" alt="RFID" style="width: 600px; height: auto;">
+
+        <p>Бұл сенсорлар температура мен ылғалдылық деңгейін өлшейді. DHT11 немесе DHT22 моделі қолданылуы мүмкін, және олар оңай қолжетімді әрі сенімді.</p>
+      </div>
+    </div>
+
+    <div class="section-title">4. Сигнализация және вентиляция жүйесі</div>
+    <div class="card">
+      <div class="card-body">
+        <h5><i class="bi bi-bell-fill icon-lg"></i> Сигнализация</h5>
+        <p>Сигнализация немесе зуммер жүйесі жоғары температура немесе көмірқышқыл газы деңгейі анықталған жағдайда іске қосылады. Бұл жүйе қауіпсіздікті қамтамасыз ету үшін өте маңызды.</p>
+        <h5><i class="bi bi-fan icon-lg"></i> Вентиляция жүйесі</h5>
+        <p>Температура тым жоғары болса, вентилятор немесе басқа вентиляция жүйесі іске қосылады. Бұл ішкі климатты реттеуге көмектеседі.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+      <div class="container">
+  <h2>NodeMCU Wi-Fi модуль үшін Arduino коды</h2>
+  <pre><code class="language-cpp">
+#include &lt;ESP8266WiFi.h&gt; // Wi-Fi модулін қосу
+#include &lt;ESP8266HTTPClient.h&gt;  // HTTP сұраныстарын жасау үшін кітапхана
+#include &lt;WiFiClientSecure.h&gt;  // HTTPS арқылы қауіпсіз қосылу үшін
+// Wi-Fi желісінің аты мен құпия сөзі
+const char* ssid = "FiveHotel";
+const char* password = "123456789";
+
+// Мәліметтер жіберілетін сервердің адресі (API)
+const char* serverUrl = "https://smartyurt.pythonanywhere.com/api/sensor/";
+
+// SSL сертификатын тексермей қосылу үшін арнайы клиент
+WiFiClientSecure client;
+
+void setup() {
+  Serial.begin(115200); // Сериялық мониторды іске қосу (дебаг үшін)
+  WiFi.begin(ssid, password); // Wi-Fi-ға қосылу басталады
+
+  // Wi-Fi қосылғанша күту
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Wi-Fi-ға қосылуда...");
+  }
+
+  Serial.println("Wi-Fi-ға сәтті қосылды!");
+
+  // Сертификатты тексеруді өшіру (егер HTTPS болса, кейде қажет)
+  client.setInsecure();
+}
+
+void loop() {
+  // Егер Wi-Fi қосылған болса
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http; // HTTP клиентін жасау
+
+    // Серверге қосылу (HTTPS клиент арқылы)
+    http.begin(client, serverUrl);
+
+    // Жіберілетін мәлімет форматы — JSON
+    http.addHeader("Content-Type", "application/json");
+
+    // Температура мен ылғалдылық бойынша мәліметтер (уақытша тесттік мәндер)
+    String jsonData = "{\"temperature\": 25, \"humidity\": 60}";
+
+    // POST сұранысы жіберіледі
+    int httpResponseCode = http.POST(jsonData);
+
+    // Серверден жауап алу
+    if (httpResponseCode > 0) {
+      Serial.print("Сервер жауабы: ");
+      Serial.println(httpResponseCode);
+      String response = http.getString();
+      Serial.println("Мәлімет: " + response);
+    } else {
+      Serial.print("Сұраныс жіберу қатесі: ");
+      Serial.println(httpResponseCode);
+    }
+
+    http.end(); // HTTP клиентін жабу
+  }
+
+  delay(60000); // 1 минут сайын мәліметтерді жіберу
+}
+
+  </code></pre>
+</div>
+
+      <div class="container">
+  <h2>Mega контроллер үшін Arduino коды</h2>
+  <pre><code class="language-cpp">
+#include <DHT.h>
+
+#define DHTPIN 7        // Датчикке қосылған пин (7-ші пин)
+#define DHTTYPE DHT11   // DHT11 немесе DHT22 датчигін пайдалансаң, сол типті көрсету
+
+DHT dht(DHTPIN, DHTTYPE); // DHT датчигін инициализациялау
+
+void setup() {
+  Serial.begin(9600); // Serial байланысы үшін бастау
+  dht.begin();        // Датчикті іске қосу
+}
+
+void loop() {
+  float temperature = dht.readTemperature(); // Температураны оқу
+  float humidity = dht.readHumidity();       // Ылғалдылықты оқу
+
+  if (isnan(temperature) || isnan(humidity)) {  // Егер оқу қатесі болса
+    Serial.println("DHT датчигінен оқу қатесі!");
+  } else {
+    // Формат: temp=25.00;hum=60.00
+    Serial.print("temp="); // Температураны шығару
+    Serial.print(temperature); // Температура мәнін көрсету
+    Serial.print(";hum=");     // Ылғалдылыққа дейін үтір қосу
+    Serial.println(humidity);  // Ылғалдылықты шығару
+  }
+
+  delay(5000); // Әр 5 секунд сайын оқу
+}
+
+  </code></pre>
+</div>
+
+
+ <div class="container">
+  <h2 class="mt-5 mb-3">Flask арқылы Sensor API</h2>
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCode()">Көшіру</button>
+    <pre><code id="code-block">from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/api/sensor', methods=['GET'])
+def get_sensor_data():
+    # Серверден алынған сенсор мәліметтерін көрсету
+    data = {
+        "temperature": 25,  # Бұл жерге нақты мәліметтерді қойыңыз
+        "humidity": 60
+    }
+    return jsonify(data)
+
+@app.route('/api/sensor/', methods=['POST'])
+def receive_sensor_data():
+    data = request.get_json()  # Деректерді алу
+    temperature = data['temperature']
+    humidity = data['humidity']
+
+    print(f"Температура: {temperature}°C, Ылғалдылық: {humidity}%")
+
+    # Деректерді өңдеуге болады, мысалы, сигнализация қосу
+
+    return jsonify({"status": "success"}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+  </div>
+</div>
+
+<script>
+  function copyCode() {
+    const code = document.getElementById('code-block').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Код көшірілді!");
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Функция для копирования текста
+  document.getElementById('copyBtn').addEventListener('click', function() {
+    var code = document.getElementById('codeBlock').innerText; // Получаем текст кода
+    var textArea = document.createElement('textarea'); // Создаем временное поле для текста
+    textArea.value = code;
+    document.body.appendChild(textArea); // Добавляем в DOM
+    textArea.select(); // Выбираем текст
+    document.execCommand('copy'); // Копируем в буфер обмена
+    document.body.removeChild(textArea); // Убираем временное поле
+    alert('Код скопирован!');
+  });
+</script>
+
+ <div class="container">
+  <h2 class="mt-5 mb-3">Python Django серверіндегі Sensor API (views.py)</h2>
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCode()">Көшіру</button>
+    <pre><code id="code-block">from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+from .models import SensorData
+
+def home(request):
+    return render(request, 'home.html')
+
+def business_plan(request):
+    return render(request, 'business_plan.html')
+
+def modeldeu(request):
+    return render(request, 'modeldeu.html')
+
+def koldanu(request):
+    return render(request, 'koldanu.html')
+
+def arduino(request):
+    return render(request, 'arduino.html')
+
+def iot(request):
+    return render(request, 'iot.html')
+
+def gallery(request):
+    return render(request, 'gallery.html')
+
+def iot_view(request):
+    return render(request, 'iot.html')
+
+def python_iot_view(request):
+    return render(request, 'python_iot.html')
+
+def weather_dashboard(request):
+    data = SensorData.objects.order_by('-timestamp')[:10]
+    return render(request, 'weather_dashboard.html', {'data': data})
+
+@csrf_exempt
+def receive_sensor_data(request):
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body)
+            temperature = data.get('temperature')
+            humidity = data.get('humidity')
+
+            if temperature is not None and humidity is not None:
+                SensorData.objects.create(temperature=temperature, humidity=humidity)
+                return JsonResponse({'status': 'success'})
+            else:
+                return JsonResponse({'status': 'error', 'message': 'Missing fields'}, status=400)
+        except:
+            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid method'}, status=405)</code></pre>
+  </div>
+</div>
+
+<script>
+  function copyCode() {
+    const code = document.getElementById('code-block').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Код көшірілді!");
+    });
+  }
+</script>
+<div class="container">
+    <div class="route-box">
+      <h3 class="mb-4 text-primary">🔗 Python Django жоба маршруттары (urls.py)</h3>
+
+      <code>'' → views.home</code><br>
+      <code>'business_plan/' → views.business_plan</code><br>
+      <code>'modeldeu/' → views.modeldeu</code><br>
+      <code>'koldanu/' → views.koldanu</code><br>
+      <code>'arduino/' → views.arduino</code><br>
+      <code>'iot/' → views.iot_view</code><br>
+      <code>'gallery/' → views.gallery</code><br>
+      <code>'python_iot/' → views.python_iot_view</code><br>
+      <code>'api/sensor/' → receive_sensor_data</code><br>
+      <code>'weather_dashboard/' → views.weather_dashboard</code>
+
+    </div>
+  </div>
+ <div class="container">
+  <h2 class="mt-5 mb-3">Python Django  модельдері (models.py)</h2>
+  <div class="code-container">
+    <button class="copy-btn" onclick="copyCode()">Көшіру</button>
+    <pre><code id="code-block">from django.db import models
+
+class Feature(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='features/')
+
+    def __str__(self):
+        return self.title
+
+class SensorData(models.Model):
+    temperature = models.FloatField()
+    humidity = models.FloatField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+</code></pre>
+  </div>
+</div>
+ <script>
+  function copyCode() {
+    const code = document.getElementById('code-block').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      alert("Код көшірілді!");
+    });
+  }
+</script>
+
+
+
+
+
+
+
+
+<a href="{% url 'home' %}" class="btn">🔙 Басты бетке қайту</a>
+
+</body>
+</html>
