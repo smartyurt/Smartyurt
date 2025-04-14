@@ -57,6 +57,7 @@ def receive_sensor_data(request):
             humidity = data.get('humidity')
             gas_concentration = data.get('gas_concentration')  # Добавлено для концентрации газа
             gas_type = data.get('gas_type', 'methane')  # Если тип газа не указан, по умолчанию метан
+            sensor_id = data.get('sensor_id', None)  # Добавляем sensor_id, если он есть
 
             # Проверка наличия необходимых полей
             if temperature is not None and humidity is not None and gas_concentration is not None:
@@ -65,7 +66,8 @@ def receive_sensor_data(request):
                     temperature=temperature,
                     humidity=humidity,
                     gas_concentration=gas_concentration,
-                    gas_type=gas_type  # Сохраняем тип газа
+                    gas_type=gas_type,
+                    sensor_id=sensor_id  # Передаём sensor_id
                 )
                 return JsonResponse({'status': 'success'})
             else:
@@ -78,3 +80,4 @@ def receive_sensor_data(request):
 
     else:
         return JsonResponse({'status': 'error', 'message': 'Invalid method'}, status=405)
+
