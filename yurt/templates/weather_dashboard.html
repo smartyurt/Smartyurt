@@ -211,25 +211,19 @@
             src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
         }
 </style>
-  <style>
-  /* Для мобильных устройств */
+<style>
+  .table-header {
+    white-space: nowrap; /* Не переносить текст */
+    font-size: 1rem; /* Обычный размер на ПК */
+    padding: 10px;
+  }
+
   @media (max-width: 768px) {
-    .table-responsive {
-      overflow-x: auto;
+    .table-header {
+      font-size: 0.7rem; /* Меньший размер шрифта на мобилках */
     }
-
     .table {
-      white-space: nowrap; /* Убираем перенос строк в таблице */
-      table-layout: fixed; /* Устанавливаем фиксированную ширину ячеек */
-    }
-
-    .table th, .table td {
-      font-size: 0.85rem; /* Уменьшаем размер шрифта */
-      padding: 8px; /* Уменьшаем отступы внутри ячеек */
-    }
-
-    .card {
-      padding: 1rem; /* Немного уменьшаем отступы внутри карточки */
+      font-size: 0.8rem; /* Уменьшаем общий текст в таблице */
     }
   }
 </style>
@@ -268,17 +262,17 @@
     <p class="text-muted">Деректер нақты уақыт режимінде жаңартылып отырады</p>
   </div>
 
- <div class="card p-4 table-container">
+<div class="card p-4 table-container">
   <div class="table-responsive">
     <table class="table table-bordered text-center align-middle">
       <thead class="table-primary">
         <tr>
-          <th><i class="bi bi-clock"></i> Уақыты</th>
-          <th><i class="bi bi-thermometer-half"></i> Температура (°C)</th>
-          <th><i class="bi bi-droplet-half"></i> Ылғалдылық (%)</th>
-          <th><i class="bi bi-fan"></i> Вентиляция</th>
-          <th><i class="bi bi-exclamation-triangle-fill"></i> Көмірқышқыл газы (ppm)</th>
-          <th><i class="bi bi-bell-fill"></i> Сигнализация</th>
+          <th class="table-header"><i class="bi bi-clock"></i> Уақыты</th>
+          <th class="table-header"><i class="bi bi-thermometer-half"></i> Температура (°C)</th>
+          <th class="table-header"><i class="bi bi-droplet-half"></i> Ылғалдылық (%)</th>
+          <th class="table-header"><i class="bi bi-fan"></i> Вентиляция</th>
+          <th class="table-header"><i class="bi bi-exclamation-triangle-fill"></i> Көмірқышқыл газы (ppm)</th>
+          <th class="table-header"><i class="bi bi-bell-fill"></i> Сигнализация</th>
         </tr>
       </thead>
       <tbody>
@@ -294,7 +288,7 @@
               Өшірулі
             {% endif %}
           </td>
-          <td>{{ item.gas_concentration }}</td> <!-- Поменяйте это на название поля в вашей модели -->
+          <td>{{ item.gas_concentration }}</td>
           <td>
             {% if item.gas_concentration > 700 %}
               <span class="text-danger fw-bold">Қосулы</span>
@@ -308,6 +302,7 @@
     </table>
   </div>
 </div>
+
 
 <div class="container py-5">
 
