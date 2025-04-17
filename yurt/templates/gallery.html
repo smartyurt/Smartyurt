@@ -80,6 +80,34 @@
         padding: 10px;
     }
 </style>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    max-width: 1200px; /* Максимальная ширина на больших экранах */
+    margin: 0 auto; /* Центрирование */
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .carousel-image {
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-image {
+      height: 300px; /* Меньше высота на планшетах и телефонах */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .carousel-image {
+      height: 200px; /* Ещё меньше высота на очень маленьких экранах */
+    }
+  }
+</style>
 <header class="border-bottom lh-1 py-3">
   <div class="container">
     <div class="row flex-nowrap justify-content-between align-items-center">
@@ -107,33 +135,34 @@
 
 
 <div class="carousel-container">
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'images/000.jpeg' %}" class="d-block" alt="Image 3">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/111.jpeg' %}" class="d-block" alt="Image 4">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/222.jpeg' %}" class="d-block" alt="Image 1">
-            </div>
-              <div class="carousel-item">
-                <img src="{% static 'images/333.jpeg' %}" class="d-block" alt="Image 1">
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'images/02.jpeg' %}" class="d-block" alt="Image 2">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images/000.jpeg' %}" class="d-block w-100 carousel-image" alt="Image 3">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/111.jpeg' %}" class="d-block w-100 carousel-image" alt="Image 4">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/222.jpeg' %}" class="d-block w-100 carousel-image" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/333.jpeg' %}" class="d-block w-100 carousel-image" alt="Image 1">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images/02.jpeg' %}" class="d-block w-100 carousel-image" alt="Image 2">
+      </div>
     </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </div>
 <a href="{% url 'home' %}" class="btn">🔙 Басты бетке қайту</a>
 
