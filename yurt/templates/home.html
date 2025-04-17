@@ -150,6 +150,40 @@
     }
   }
 </style>
+<style>
+  /* Базовый стиль */
+  .zoom-in {
+    object-fit: cover;
+    object-position: center bottom;
+    border-radius: 12px;
+  }
+
+  /* Адаптив под мобилки */
+  @media (max-width: 768px) {
+    .zoom-in {
+      object-fit: contain !important;
+      object-position: center center !important;
+      background-color: white !important; /* Фон под картинкой белый */
+    }
+
+    .fade-in-text {
+      background-color: white; /* Белый фон за текстом */
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .heading-text {
+      font-size: 1.8rem !important; /* Заголовок меньше */
+      text-shadow: none !important;
+    }
+
+    .paragraph-text {
+      font-size: 1rem !important; /* Параграф меньше */
+    }
+  }
+</style>
+
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
@@ -243,29 +277,36 @@
     <a href="{% url 'koldanu' %}">Қолдану салалары</a>
     <a href="{% url 'arduino' %}">Ардуино жобалары</a>
     <a href="{% url 'iot' %}">IoT технологиялары</a>
-    <a href="{% url 'gallery' %}">Галерея</a>
+     <a href="{% url 'led' %}">Жарықты басқару</a>
     <a href="{% url 'weather_dashboard' %}"> Yurt Hub</a>
       <a href="{% url 'python_iot' %}">Python жоба</a>
+    <a href="{% url 'gallery' %}">Галерея</a>
 </div>
 </div>
 
-<main class="container">
-  <div class="position-relative overflow-hidden rounded" style="height: 550px;">
-    <img src="/static/images/01020304.jpeg" alt="Ақылды киіз үй" class="w-100 h-100 position-absolute top-0 start-0 zoom-in" style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
+<main class="container py-4">
+  <div class="position-relative overflow-hidden rounded bg-white" style="height: 550px;">
+    <img src="/static/images/01020304.jpeg" alt="Ақылды киіз үй"
+         class="w-100 h-100 position-absolute top-0 start-0 zoom-in"
+         style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
 
-    <div class="position-relative text-white p-4 p-md-5 fade-in-text">
-      <div class="col-lg-8">
-<h1 class="fst-italic" style="font-family: 'Playfair Display', serif; font-weight: normal; font-size: 3.2rem; text-shadow: 3px 3px 15px rgba(0,0,0,0.2); letter-spacing: 1.5px; animation: slideIn 1s ease-out;">
-  SMART YURT - дәстүр мен инновацияның үйлесімділігі
-</h1>
+    <div class="position-relative text-dark p-4 p-md-5 fade-in-text" style="z-index: 2;">
+      <div class="col-12 col-lg-8 mx-auto">
+        <h1 class="fst-italic mb-3 heading-text"
+            style="font-family: 'Playfair Display', serif; font-weight: normal; font-size: 3.2rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.1); letter-spacing: 1.2px;">
+          SMART YURT - дәстүр мен инновацияның үйлесімділігі
+        </h1>
 
-        <p class="lead my-3" style="font-family: 'Roboto', sans-serif; opacity: 0.8; text-shadow: 1px 1px 6px rgba(0,0,0,0.3);">
+        <p class="lead my-3 paragraph-text"
+           style="font-family: 'Roboto', sans-serif; opacity: 0.9;">
           «Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.
         </p>
       </div>
     </div>
   </div>
 </main>
+
+
 
 <div class="container">
   <div class="row mb-4">

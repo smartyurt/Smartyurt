@@ -1,8 +1,28 @@
-from django.shortcuts import render
+
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import SensorData
+
+from django.shortcuts import redirect, render
+import requests
+
+ESP8266_IP = "http://192.168.0.123"  # Замените на IP вашего ESP
+
+def color_control(request):
+    color = request.GET.get("color")
+    if color == "red":
+        requests.get(f"{ESP8266_IP}/color?r=1023&g=0&b=0")
+    elif color == "blue":
+        requests.get(f"{ESP8266_IP}/color?r=0&g=0&b=1023")
+    elif color == "off":
+        requests.get(f"{ESP8266_IP}/color?r=0&g=0&b=0")
+
+    return redirect("home")
+
+def home(request):
+    return render(request, "home.html")
+
 
 
 def home(request):
@@ -39,6 +59,8 @@ def iot_view(request):
 
 def python_iot_view(request):
     return render(request, 'python_iot.html')
+def led_view(request):
+    return render(request, 'led.html')
 
 
 def weather_dashboard(request):

@@ -14,4 +14,7 @@ urlpatterns = [
     path('python_iot/', views.python_iot_view, name='python_iot'),
     path('api/sensor/', receive_sensor_data, name='receive_sensor_data'),
     path('weather_dashboard/', views.weather_dashboard, name='weather_dashboard'),
+path('led/', views.led_view, name='led'),
+    path('color/', views.color_control, name='color'),
 ]
+
