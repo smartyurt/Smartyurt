@@ -211,6 +211,28 @@
             src: url(chrome-extension://jcpgbnbdnakoblgfkbgggankeidkfcdl/assets/fonts/noto-sans-semibold.ttf);
         }
 </style>
+  <style>
+  /* Для мобильных устройств */
+  @media (max-width: 768px) {
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    .table {
+      white-space: nowrap; /* Убираем перенос строк в таблице */
+      table-layout: fixed; /* Устанавливаем фиксированную ширину ячеек */
+    }
+
+    .table th, .table td {
+      font-size: 0.85rem; /* Уменьшаем размер шрифта */
+      padding: 8px; /* Уменьшаем отступы внутри ячеек */
+    }
+
+    .card {
+      padding: 1rem; /* Немного уменьшаем отступы внутри карточки */
+    }
+  }
+</style>
 </head>
 <body>
 <header class="border-bottom lh-1 py-3">
@@ -246,7 +268,8 @@
     <p class="text-muted">Деректер нақты уақыт режимінде жаңартылып отырады</p>
   </div>
 
-  <div class="card p-4 table-container">
+ <div class="card p-4 table-container">
+  <div class="table-responsive">
     <table class="table table-bordered text-center align-middle">
       <thead class="table-primary">
         <tr>
@@ -258,34 +281,33 @@
           <th><i class="bi bi-bell-fill"></i> Сигнализация</th>
         </tr>
       </thead>
-     <tbody>
-  {% for item in data %}
-  <tr>
-    <td>{{ item.timestamp }}</td>
-    <td>{{ item.temperature }}</td>
-    <td>{{ item.humidity }}</td>
-    <td>
-      {% if item.ventilation_on %}
-        Қосулы
-      {% else %}
-        Өшірулі
-      {% endif %}
-    </td>
-    <td>{{ item.gas_concentration }}</td> <!-- Поменяйте это на название поля в вашей модели -->
-    <td>
-      {% if item.gas_concentration > 700 %}
-        <span class="text-danger fw-bold">Қосулы</span>
-      {% else %}
-        <span class="text-success">Норма</span>
-      {% endif %}
-    </td>
-  </tr>
-  {% endfor %}
-</tbody>
+      <tbody>
+        {% for item in data %}
+        <tr>
+          <td>{{ item.timestamp }}</td>
+          <td>{{ item.temperature }}</td>
+          <td>{{ item.humidity }}</td>
+          <td>
+            {% if item.ventilation_on %}
+              Қосулы
+            {% else %}
+              Өшірулі
+            {% endif %}
+          </td>
+          <td>{{ item.gas_concentration }}</td> <!-- Поменяйте это на название поля в вашей модели -->
+          <td>
+            {% if item.gas_concentration > 700 %}
+              <span class="text-danger fw-bold">Қосулы</span>
+            {% else %}
+              <span class="text-success">Норма</span>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
     </table>
   </div>
 </div>
-
 
 <div class="container py-5">
 

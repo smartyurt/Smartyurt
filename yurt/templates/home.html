@@ -151,35 +151,26 @@
   }
 </style>
 <style>
-  /* Базовый стиль */
-  .zoom-in {
-    object-fit: cover;
-    object-position: center bottom;
-    border-radius: 12px;
-  }
-
-  /* Адаптив под мобилки */
   @media (max-width: 768px) {
     .zoom-in {
-      object-fit: contain !important;
-      object-position: center center !important;
-      background-color: white !important; /* Фон под картинкой белый */
+      height: 300px !important; /* уменьшена высота фото для мобильной версии */
+      object-position: center top !important;
     }
 
     .fade-in-text {
-      background-color: white; /* Белый фон за текстом */
+      background-color: white;
       padding: 1.5rem;
-      border-radius: 12px;
+      border-radius: 0 0 12px 12px;
       text-align: center;
     }
 
-    .heading-text {
-      font-size: 1.8rem !important; /* Заголовок меньше */
-      text-shadow: none !important;
+    .fade-in-text h1 {
+      font-size: 1.8rem; /* Уменьшен шрифт заголовка для мобильных устройств */
+      text-shadow: none;
     }
 
-    .paragraph-text {
-      font-size: 1rem !important; /* Параграф меньше */
+    .fade-in-text p {
+      font-size: 0.9rem; /* Уменьшен шрифт абзаца */
     }
   }
 </style>
@@ -285,24 +276,26 @@
 </div>
 
 <main class="container py-4">
-  <div class="position-relative overflow-hidden rounded bg-white" style="height: 550px;">
-    <img src="/static/images/01020304.jpeg" alt="Ақылды киіз үй"
-         class="w-100 h-100 position-absolute top-0 start-0 zoom-in"
-         style="object-fit: cover; object-position: center bottom; border-radius: 12px;">
+  <div class="position-relative overflow-hidden bg-white rounded" style="overflow: hidden;">
 
-    <div class="position-relative text-dark p-4 p-md-5 fade-in-text" style="z-index: 2;">
+    <img src="/static/images/01020304.jpeg" alt="Ақылды киіз үй"
+         class="w-100 zoom-in d-block"
+         style="object-fit: cover; object-position: center bottom; height: 550px; border-radius: 12px;"> <!-- Высота фото возвращена к 550px -->
+
+    <div class="text-dark p-4 p-md-5 fade-in-text" style="z-index: 2; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center;">
       <div class="col-12 col-lg-8 mx-auto">
         <h1 class="fst-italic mb-3 heading-text"
-            style="font-family: 'Playfair Display', serif; font-weight: normal; font-size: 3.2rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.1); letter-spacing: 1.2px;">
+            style="font-family: 'Playfair Display', serif; font-weight: normal; font-size: 2.5rem; text-shadow: 1px 1px 6px rgba(0,0,0,0.1); letter-spacing: 1.2px;">
           SMART YURT - дәстүр мен инновацияның үйлесімділігі
         </h1>
 
         <p class="lead my-3 paragraph-text"
-           style="font-family: 'Roboto', sans-serif; opacity: 0.9;">
+           style="font-family: 'Roboto', sans-serif; opacity: 0.9; font-size: 1rem;"> <!-- Размер текста уменьшен -->
           «Ақылды киіз үй» – дәстүрлі қазақ мәдениетін IoT (Internet of Things) технологиялармен үйлестіретін ерекше жоба.
         </p>
       </div>
     </div>
+
   </div>
 </main>
 
